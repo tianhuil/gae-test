@@ -45,6 +45,14 @@ app.get('/download', async (req, res) => {
   res.end(buffer)
 });
 
+const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+
+app.get('/timed', async (req, res) => {
+  res.status(200).send('hi').end()
+  await wait(1000)
+  console.log('waited')
+});
+
 // Start the server
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
