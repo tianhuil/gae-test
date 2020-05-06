@@ -48,9 +48,21 @@ app.get('/download', async (req, res) => {
 const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 app.get('/timed', async (req, res) => {
+  const addFunc = async () => {
+    const x = 1
+    const y = 2
+    console.log('a')
+    return async () => {
+      console.log('c')
+      await wait(1000)
+      console.log(1 + 2)
+    }
+  }
+  const add = await addFunc()
   res.status(200).send('hi').end()
   await wait(1000)
-  console.log('waited')
+  console.log('b')
+  await add()
 });
 
 // Start the server
