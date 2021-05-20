@@ -17,7 +17,7 @@
     "test": "mocha --exit test/*.test.js"
   },
   "dependencies": {
-    "html-pdf": "^2.2.0",
+    "html-pdf": "^3.0.1",
     "express": "^4.16.3"
   },
   "devDependencies": {
